@@ -1,0 +1,67 @@
+#List of the global variables
+glo_vars <- c("n","run_psa","psa_count", "disc_rate_costs", "disc_rate_QALYs", "disc_rate_LYs",
+              "Population", "treatment", "Results_output", "KMmethod", "Number of cores",
+              "Treatment effect duration")
+
+##get the length of glo_vars, for checking below
+length(glo_vars)
+
+#create the global varaibles matrix to store the global varaibles
+GlobalVars <- matrix(data=NA, nrow = length(glo_vars), ncol = 2)
+#update the row names to be the list of global variables above
+rownames(GlobalVars) <- glo_vars
+colnames(GlobalVars) <- c("Value", "Description")
+
+#drop the glo_vars variable
+rm(glo_vars)
+
+GlobalVars["n", "Value"] <- 5000
+GlobalVars["n", "Description"] <- "The number of patients to run through the model"
+
+GlobalVars["run_psa", "Value"] <- F
+GlobalVars["run_psa", "Description"] <- "T = run psa, F = run deterministic"
+
+GlobalVars["psa_count", "Value"] <- 2000
+#Stop the model here if there is a discrepancy in the model mode and declared number 
+#of PSA runs
+if(is.numeric(GlobalVars["psa_count", "Value"])==T&GlobalVars["run_psa", "Value"]==F|
+   is.na(GlobalVars["psa_count", "Value"])==T&GlobalVars["run_psa", "Value"]==T){
+  stop("discrepancy between the psa mode and the number of psa runs")  
+}
+GlobalVars["psa_count", "Description"] <- "number of PSA runs. set to NA for deterministic runs"
+
+GlobalVars["disc_rate_costs", "Value"] <- 0.035
+GlobalVars["disc_rate_costs", "Description"] <- "discount rate for costs, writen as a numeric number"
+
+GlobalVars["disc_rate_QALYs", "Value"] <- 0.035
+GlobalVars["disc_rate_QALYs", "Description"] <- "discount rate for QALYs, writen as a numeric number"
+
+GlobalVars["disc_rate_LYs", "Value"] <- 0.035
+GlobalVars["disc_rate_LYs", "Description"] <- "discount rate for QALYs, writen as a numeric number"
+
+GlobalVars["treatment", "Value"] <- "baseline"
+GlobalVars["treatment", "Description"] <- "text term for the treatment. Cross reference that this is called correctly
+in your code for creating an interventions effect matrix (should be in R/Interventions.R)"
+
+
+GlobalVars["Results_output", "Value"] <- "Summary"
+GlobalVars["Results_output", "Description"] <- "text term to produce different output types. Default is summary for PSA,
+set to Patient Level to get the patient matrix. If not specfied, the determinisitc model will return a detailed year by year summary"
+
+#Checks, Time_to_Event and Detailed modes are only run in a deterministic model
+if(GlobalVars["run_psa", "Value"]==T&GlobalVars["Results_output", "Value"]=="Time_to_Event"|
+   GlobalVars["run_psa", "Value"]==T&GlobalVars["Results_output", "Value"]=="Detailed"){
+  stop("model outputs are not compatible with outputs from a PSA")  
+}
+
+
+GlobalVars["KMmethod", "Value"] <- "Events"
+GlobalVars["KMmethod", "Description"] <- "Text term to indicate the method for calculating a Kaplan-Meier curve from
+the simulation. Options are Events or Probabilities. Events uses the events in the model, probabilities uses the estimated probabilities.
+Default is Events."
+
+GlobalVars["Number of cores", "Value"] <- 100
+GlobalVars["Number of cores", "Description"] <- "Number to declare the maximum number of cores to use when processing PSA results. Use this to decrease memory usage."
+
+GlobalVars["Treatment effect duration", "Value"] <- 3
+GlobalVars["Treatment effect duration", "Description"] <- "Number to declare how long the intervention effect will last."

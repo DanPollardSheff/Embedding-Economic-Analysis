@@ -1,0 +1,120 @@
+Variable,Description
+ID,"Numeric, sequential"
+CONS,"Always 1, needed"
+T,? Left over from prevention model?
+AGE,Age in years
+MALE,"1=male, 0 = female"
+FEMALE,"1=female, 0 = male"
+AFRO,"1=Afro Carribean ancestory, 0= otherwise"
+INDIAN,"1=South Asian ancestory, 0= otherwise"
+DIAB_DUR,Diabetes duration in years
+SMO,"1 = current smoker, 0 = otherwise"
+MEN,"1 = in menopause, 0 = otherwise"
+HBA,HbA1c in %
+BMI,body mass index in Kg/m2
+SBP,"systolic blood pressure, mmHg"
+HDL,"high-density lipoprotein, mmol/L"
+LDL,"low-density lipoprotein, mmol/L"
+HAEM,"haemoglobin, g/dL"
+WBC,"white blood cell count, x10^6/ml"
+HEART_R,"Heart rate, beats per minute"
+eGFR,"Estimated glomerular filtration rate, 1 ml/min/1.73m^2"
+LDL_0,"low-density lipoprotein at diagnosis, mmol/L"
+HDL_0,"high-density lipoprotein at diagnosis, mmol/L"
+HEART_R_0,"Heart rate at diagnosis, beats per minute"
+HAEM_0,"haemoglobin at diagnosis, g/dL"
+WBC_0,"white blood cell count at diagnosis, x10^6/ml"
+eGFR_0,"Estimated glomerular filtration rate at diagnosis, 10 ml/min/1.73m^2"
+SMO_0,"1 = smoker at diagnosis, 0 = otherwise"
+BMI_0,body mass index at diagnosis in Kg/m2
+HBA_0,HbA1c at diagnosis in %
+SBP_0,"systolic blood pressure at diagnosis, mmHg"
+AGE_0,"Age at diagnosis, years"
+BMI_U_18_5,"1 = current BMI is less than 18.5, 0 =otherwise"
+BMI_O_E_25,"1= current BMI is 25 or more, 0 = otherwise"
+LDL_O_35,"Knot, LDL values of more than 3.5mg/dL"
+eGFR_U_60,"Estimated glomerular filtration rate if under 60, 1 ml/min/1.73m^2"
+eGFR_O_60,"Estimated glomerular filtration rate if over 60, 1 ml/min/1.73m^2"
+MET,"1 = on Metformin, 0 = otherswise"
+MET2,"1 = on 2nd line therapy, 0 = otherswise"
+INSU,"1 = on insulin, 0 = otherswise"
+CANB_E,"1 = has breast cancer this year, 0 = otherwise"
+CANC_E,"1 = has colorectal cancer this year, 0 = otherwise"
+CANB_H,"1 = has breast cancer prior to this year, 0 = otherwise"
+CANC_H,"1 = has colorectal cancer prior to this year, 0 = otherwise"
+OST_E,"1 = has oestoarthritis this year, 0= otherwise"
+OST_H,"1 = has oestoarthritis in previous years, 0= otherwise"
+DEP_E,"1 = has depression this year, 0 = otherwise"
+DEP_H,"1 = has depression in a previous year, 0 = otherwise"
+DMCOST,Diabetes related cots
+CVDCOST,CVD related costs
+RETCOST,Blindness (retinopathy) related costs
+NEPHCOST,Nephropathy (renal failure) related costs
+NEUCOST,Neuropathy related costs
+CANCOST,Cancer related costs
+OSTCOST,Oestoarthristis related costs
+DEPCOST,Depression related costs
+OTHCOST,Other costs
+SCOST,
+ECOST,
+COST,Undiscounted total costs accrued per person
+DiscCOST,Discounted total costs accrued per person
+YearCOST,Undiscounted total costs this year
+QALY,QALYs accrued per person
+DiscQALY,Discounted total QALYs accrued per person
+EQ5D,a variable to store eq-5d in a given year
+YearsLived,A varaible to store years lived in the model
+SICK,
+MMALB_E,"1 = has micro or macro albuminuria this year, 0 = otherwise"
+MMALB_H,"1 = has micro or macro albuminuria prior to this year, 0 = otherwise"
+AMP_E,"1 = has one amputation this year, 0 = otherwise"
+AMP2_E,"1 = has two amputations this year, 0 = otherwise"
+AMP_H,"1 = had an amputation before this year, 0 = otherwise"
+BLIND_E,"1 = went blind this year, 0 = otherwise"
+BLIND_H,"1 = went blind before this year, 0 = otherwise"
+ULCER_E,"1 = developed a foot ulcer this year, 0 = otherwise"
+ULCER_H,"1 = has a foot ulcer before this year, 0= otherwise"
+RENAL_E,"1 = developed renal failuer this year, 0 = otherwise"
+RENAL_H,"1 = developed renal failuer before this year, 0 = otherwise"
+CHF_E,"1 = developed chronic heart failuer this year, 0 = otherwise"
+CHF_H,"1 = developed chronic heart failuer before this year, 0 = otherwise"
+IHD_E,"1 = developed ischeamic heart disease this year, 0 = otherwise"
+IHD_H,"1 = developed ischeamic heart disease before this year, 0 = otherwise"
+MI_E,"1 = had their first MI this year, 0 = otherwise "
+MI2_E,"1 = had their second MI this year, 0 = otherwise "
+MI_H,"1 = has a history of 1 MI, 0 = otherwise "
+STRO_E,"1 = had a stroke this year, 0= otherwise"
+STRO2_E,"1 = had a second stroke this year, 0= otherwise"
+STRO_H,"1 = has a history of strokes, 0= otherwise"
+ATFIB_E,"1 = has atrial fibriliation this year, 0 = otherwise"
+ATFIB_H,"1 = has atrial fibriliation before this year, 0 = otherwise"
+PVD_E,"1 = had a PVD event this year, 0 = otherwise"
+PVD_H,"1 = had a PVD before this year, 0 = otherwise"
+STRO2_H,"1 = has a history of two strokes, 0 = otherwise "
+MI2_H,"1 = has a history of two MIs, 0 = otherwise "
+AMP2_H,"1 = has a history of two amputaions, 0= otherwise"
+F_ALLCAUSE,"Year of death, if dead. NA otherwise"
+DEATH_MACE_YEAR,"1= died this year and had a MACE event, 0 = otherwise. Derived in model"
+NONFATAL_MACE_YEAR,"1= had a MACE event and did not die this year, 0 = otherwise. Derived in model"
+MACE_HIST,"1= has a history of MACE events, 0 = otherwise. Derived in model"
+p_CHF,probability of CHF in a given year. Derived in model in each year alive
+p_IHD,probability of IHD in a given year. Derived in model in each year alive
+p_renal,probability of renal failure in a given year. Derived in model in each year alive
+p_amp2,probability of 2nd amputation in a given year. Derived in model in each year alive
+p_amp1,probability of 1st amputation in a given year. Derived in model in each year alive
+p_ULCER,probability of ulcer in a given year. Derived in model in each year alive
+p_STRO2,probability of 2nd stroke in a given year. Derived in model in each year alive
+p_STRO,probability of 1st stroke in a given year. Derived in model in each year alive
+p_MI2,probability of 2nd MI in a given year. Derived in model in each year alive
+p_MI,probability of 1st MI in a given year. Derived in model in each year alive
+p_BLIND,probability of blindness in a given year. Derived in model in each year alive
+p_DEATH,probability of death in a given year. Derived in model in each year alive
+p_PVD,probability of PVD this year
+p_ATFIB,probability of Atrial Fibrilliation this year
+p_MMALB,probability of Macro or Micro albuminurea this year
+p_SMO,probability that someone will still be a smoker this year if smoking is assessed this year
+p_BC,probability that somone will develop breast cancer this year
+p_CC,probability that someone will develop colorectal cancer this year
+p_DEP,probability that someone will develop depression
+p_OST,probability that someone will develop osteoarthritis
+GP,number of GP visits each year
