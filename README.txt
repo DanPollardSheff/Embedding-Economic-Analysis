@@ -2,7 +2,7 @@ To run this model you must install R and R studio. Our analyses were run in R ve
 
 Before running any models you should add a folder called Results to this directory. This folder is ingored by git version control and contains the actual model results. 
 
-To simply run the analyses detailed in the attached report, open the symmetrical-octo-tribble.Rproj in R studio. Run the .R script you want to run. 
+To simply run the analyses detailed in the attached report, open the Embedding Economics Analysis.Rproj in R studio. Load and then run the .R script you want to run. 
 
 The main file to run is the Run all Analyses.R file. This replicates the analyses in Davies et al [REF to be added when published] 
 
