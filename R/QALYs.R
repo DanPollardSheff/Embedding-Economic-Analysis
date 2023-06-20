@@ -1,5 +1,5 @@
 #    Embedding RCT Health Economic Analysis using the Sheffield Type 2 Diabetes Treatment Model - version 3
-#    Copyright (C) 2023  Pollard,Pidd,Breeze,Brennan
+#    Copyright (C) 2023   Pollard, Pidd, Breeze, Brennan, Thomas
 
 #    This program is free software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
