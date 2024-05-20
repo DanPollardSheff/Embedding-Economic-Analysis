@@ -53,9 +53,9 @@ Breast_cancer <- function(population_, parameter_, alive_){
 Colorectal_cancer <- function(population_, parameter_, alive_){
 
   FV <- parameter_[,"CANC_mu"]+
-    parameter_[,"CANC_bta_MALE"]*(ifelse(population_[,"FEMALE"][alive]==1,0,1))+
+    parameter_[,"CANC_bta_MALE"]*(ifelse(population_[,"FEMALE"][alive_]==1,0,1))+
     parameter_[,"CANC_bta_BMI"]*population_[,"BMI"][alive_]+
-    parameter_[,"CANC_bta_BMIMALE"]*(ifelse(population_[,"FEMALE"][alive]==1,0,1))*population_[,"BMI"][alive_]
+    parameter_[,"CANC_bta_BMIMALE"]*(ifelse(population_[,"FEMALE"][alive_]==1,0,1))*population_[,"BMI"][alive_]
   #convert to probabilities
   pCC <- 1-exp(-exp(FV))
   #remove temporary variables generated in the function
