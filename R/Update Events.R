@@ -281,7 +281,7 @@ update_events_SPHR_cancer <- function(population_, parameter_,Year_, alive_, ran
   population_[,"CANB_E"][alive_] <- ifelse(random_numbs_[,"CANB",Year_+1][alive_]<pBC,1,0)
   
   #Estimate the probability of developing colorectal cancer this year
-  pCC <- Breast_cancer(population_, parameter_, alive_)
+  pCC <- Colorectal_cancer(population_, parameter_, alive_)
   #Reset this probability to 0 for people with a history of breast cancer
   pCC <- ifelse(population_[,"CANC_H"][alive_]==1,0,pCC)
   #record probability of breast cancer
