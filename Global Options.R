@@ -39,7 +39,7 @@ rm(glo_vars)
 GlobalVars["n", "Value"] <- 5000
 GlobalVars["n", "Description"] <- "The number of patients to run through the model"
 
-GlobalVars["run_psa", "Value"] <- F
+GlobalVars["run_psa", "Value"] <- T
 GlobalVars["run_psa", "Description"] <- "T = run psa, F = run deterministic"
 
 GlobalVars["psa_count", "Value"] <- 2000

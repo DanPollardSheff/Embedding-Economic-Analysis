@@ -278,3 +278,204 @@ results2 <- run_model(population_clean,
                       LifeTables)
 
 write.csv(results2, "Results/MA_lifetime_control.csv")
+
+#Change the treatment effect duration back to the base case value
+GlobalVars["Treatment effect duration", "Value"] <- 3
+
+#Scenario - White population subgroup
+
+##Create a true false variable for whether the population is correct
+inpop <- population_clean[,"AFRO"]==0&population_clean[,"INDIAN"]==0
+#Subgroup the population
+population_clean_white <- population_clean[inpop,]
+#Change the number of patients
+GlobalVars["n","Value"] <- length(population_clean_white[,"ID"])
+#Set the A1c scenario
+GlobalVars["HbA1c Scenario", "Value"] <- "PopulationWhite"
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_white, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/Whitesubgroup_embedding.csv")
+set.seed(1)
+results2 <- run_model(population_clean_white, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+
+write.csv(results2, "Results/Whitesubgroup_control.csv")
+
+rm(population_clean_white,inpop)
+
+#Scenario - ethnic minority subgroup
+
+##Create a true false variable for whether the population is correct
+inpop <- population_clean[,"AFRO"]==1|population_clean[,"INDIAN"]==1
+#Subgroup the population
+population_clean_ethmin <- population_clean[inpop,]
+#Change the number of patients
+GlobalVars["n","Value"] <- length(population_clean_ethmin[,"ID"])
+#Set the A1c scenario
+GlobalVars["HbA1c Scenario", "Value"] <- "PopulationEthnicMinority"
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_ethmin, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/EthnicMinoritysubgroup_embedding.csv")
+set.seed(1)
+results2 <- run_model(population_clean_ethmin, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+
+write.csv(results2, "Results/EthnicMinoritysubgroup_control.csv")
+
+rm(population_clean_ethmin,inpop)
+#Reset the population back to the default value
+GlobalVars["n","Value"] <- length(population_clean[,"ID"])
+
+#Complete Case Subgroup
+GlobalVars["HbA1c Scenario", "Value"] <- "CompleteCase"
+
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/completecase_embedding.csv")
+set.seed(1)
+results2 <- run_model(population_clean, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+
+write.csv(results2, "Results/completecase_control.csv")
+
+#Education Attenders Subgroup
+GlobalVars["HbA1c Scenario", "Value"] <- "EducationAttenders"
+
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/educattenders_embedding.csv")
+set.seed(1)
+results2 <- run_model(population_clean, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+
+write.csv(results2, "Results/educattenders_control.csv")
+
+#Recruited before Feb 2020
+GlobalVars["HbA1c Scenario", "Value"] <- "RecruitedBeforeFeb2020"
+
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/precovid_embedding.csv")
+set.seed(1)
+results2 <- run_model(population_clean, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+
+write.csv(results2, "Results/precovid_control.csv")
+
+#Baseline HbA1c above 6.5%
+inpop <- population_clean[,"HBA"] >= 6.5
+population_clean_A1c6.5above <- population_clean[inpop,]
+GlobalVars["n",  "Value"] <- length( population_clean_A1c6.5above[,"ID"])
+GlobalVars["HbA1c Scenario", "Value"] <- "BaselineA1cAbove47.5"
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/blA1c_over47.5_embedding.csv")
+set.seed(1)
+results2 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+
+write.csv(results2, "Results/blA1c_over47.5_control.csv")
+
+rm(population_clean_A1c6.5above, inpop)
