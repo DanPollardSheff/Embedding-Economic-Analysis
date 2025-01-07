@@ -22,7 +22,7 @@
 #List of the global variables
 glo_vars <- c("n","run_psa","psa_count", "disc_rate_costs", "disc_rate_QALYs", "disc_rate_LYs",
               "Population", "treatment", "Results_output", "KMmethod", "Number of cores",
-              "Treatment effect duration")
+              "Treatment effect duration", "HbA1c Scenario")
 
 ##get the length of glo_vars, for checking below
 length(glo_vars)
@@ -86,3 +86,12 @@ GlobalVars["Number of cores", "Description"] <- "Number to declare the maximum n
 
 GlobalVars["Treatment effect duration", "Value"] <- 3
 GlobalVars["Treatment effect duration", "Description"] <- "Number to declare how long the intervention effect will last."
+
+GlobalVars["HbA1c Scenario", "Value"] <- "Base Case"
+GlobalVars["HbA1c Scenario", "Description"] <- "This is a control varaible to determine 
+which values are used for the HbA1c subroup value is used for the one year HbA1c effect when direct 
+biomedical effects are used. Options are:
+PopulationWhite, PopulationEthnicMinority, CompleteCase, EducationAttenders, 
+BaselineA1cAbove47.5, RecruitedBeforeFeb2020. Default is the main trial result
+so if none of these options are correctly specified the model will default to 
+this value"

@@ -41,8 +41,16 @@ initialise_intervention_dt_HbA1c <- function(n_,
   if(treatment_ == "test" | treatment_ == "Mt_HOOD_2018_QOL_A1c"){
     INTE_A1c[,2:(endtime_+2)] <- -0.5
   }else if (treatment_ == "Embedding_TrialEffect_All" | treatment_ == "Embedding_TrialEffect_PriandSS"){
-    INTE_A1c[,2] <- parameter_[,"Intv_Embedding_HbA1c"]
-    
+    #Select the right HbA1c value according the scenario on the source of the HbA1c effect
+    #Default if no correct option is specified is the main trial results (parameter Intv_Embedding_HbA1c)
+    INTE_A1c[,2] <- ifelse(GlobalVars_["HbA1c Scenario","Value"]=="PopulationWhite",parameter_[,"Subgroup_White_HbA1c"], #If white subgroup is selected use the HbA1c parameter estimated in the white subgroup
+                           ifelse(GlobalVars_["HbA1c Scenario","Value"]=="PopulationEthnicMinority",parameter_[,"Subgroup_EthnicMinority_HbA1c"], #If the ethnic minority subgroup is selected use the HbA1c parameter esitmated in the ethinic minority subgroup
+                                  ifelse(GlobalVars_["HbA1c Scenario","Value"]=="CompleteCase",parameter_[,"Subgroup_CompleteCase_HbA1c"], #If the complete case subgroup is selected, use the HbA1c parameter estimated in the complete case population
+                                         ifelse(GlobalVars_["HbA1c Scenario","Value"]=="EducationAttenders",parameter_[,"Subgroup_EducationAttenders_A1c"], #If the education attenders subgroup is selected, use the HbA1c parameter estimated in the education attenders subgroup
+                                                ifelse(GlobalVars_["HbA1c Scenario","Value"]=="BaselineA1cAbove47.5",parameter_[,"Subgroup_BaselineA1cabove47.5mmol.mol_A1c"],  #If the baseline HbA1c > 47.5mmol/mol subgroup is selected, use the HbA1c parameter estimated in the baseline HbA1c > 47.5mmol/mol subgroup
+                                                       ifelse(GlobalVars_["HbA1c Scenario","Value"]=="RecruitedBeforeFeb2020",parameter_[,"Subgroup_RecruitedBeforeFeb2020_A1c"], #If the recruited before Feb 2020 (pre-COVID) subgroup is selected, use the HbA1c parameter estiamted in the recurited before Feb 2020 subgroup
+                                                              parameter[,"Intv_Embedding_HbA1c"])))))) # If no valid subgroup is set, use the base case value for HbA1c
+
     ####Duration scenarios
     if(as.numeric(GlobalVars_["Treatment effect duration","Value"])==3){#effects last until year 3
       INTE_A1c[,3:4]  <- parameter_[,"Intv_Embedding_HbA1c_2yr"]
