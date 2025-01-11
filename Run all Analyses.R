@@ -479,3 +479,136 @@ results2 <- run_model(population_clean_A1c6.5above,
 write.csv(results2, "Results/blA1c_over47.5_control.csv")
 
 rm(population_clean_A1c6.5above, inpop)
+
+##Education type subgroup analysis
+##Desmond
+GlobalVars["HbA1c Scenario", "Value"] <- "DESMOND"
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+write.csv(results1, "Results/Embedding_DesmondSubgroup.csv")
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/Control_DesmondSubgroup.csv")
+
+#Diabetes 2gether / Diabetes 4ward
+GlobalVars["HbA1c Scenario", "Value"] <- "Diabetes 2gether"
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/Embedding_Diabetes2getherSubgroup.csv")
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/Control_Diabetes2getherSubgroup.csv")
+
+#Spotlight
+GlobalVars["HbA1c Scenario", "Value"] <- "Diabetes 2gether"
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/Embedding_SpotlightSubgroup.csv")
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/Control_SpotlightSubgroup.csv")
+
+
+
+#Xpert Health
+GlobalVars["HbA1c Scenario", "Value"] <- "Xpert Health"
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "Embedding_TrialEffect_All", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+write.csv(results1, "Results/Embedding_XpertHealthSubgroup.csv")
+
+set.seed(1)
+start.time <- Sys.time()
+
+results1 <- run_model(population_clean_A1c6.5above, 
+                      parameter, 
+                      50, 
+                      "baseline", 
+                      GlobalVars,
+                      random_numbers,
+                      LifeTables)
+end.time <- Sys.time()
+end.time - start.time
+
+write.csv(results1, "Results/Control_XpertHealthSubgroup.csv")

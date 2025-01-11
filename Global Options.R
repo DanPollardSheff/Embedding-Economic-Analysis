@@ -92,6 +92,7 @@ GlobalVars["HbA1c Scenario", "Description"] <- "This is a control varaible to de
 which values are used for the HbA1c subroup value is used for the one year HbA1c effect when direct 
 biomedical effects are used. Options are:
 PopulationWhite, PopulationEthnicMinority, CompleteCase, EducationAttenders, 
-BaselineA1cAbove47.5, RecruitedBeforeFeb2020. Default is the main trial result
+BaselineA1cAbove47.5, RecruitedBeforeFeb2020, DESMOND, Diabetes 2gether,
+Spotlight, Xpert Health. Default is the main trial result
 so if none of these options are correctly specified the model will default to 
 this value"

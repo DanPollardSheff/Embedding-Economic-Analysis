@@ -49,7 +49,11 @@ initialise_intervention_dt_HbA1c <- function(n_,
                                          ifelse(GlobalVars_["HbA1c Scenario","Value"]=="EducationAttenders",parameter_[,"Subgroup_EducationAttenders_A1c"], #If the education attenders subgroup is selected, use the HbA1c parameter estimated in the education attenders subgroup
                                                 ifelse(GlobalVars_["HbA1c Scenario","Value"]=="BaselineA1cAbove47.5",parameter_[,"Subgroup_BaselineA1cabove47.5mmol.mol_A1c"],  #If the baseline HbA1c > 47.5mmol/mol subgroup is selected, use the HbA1c parameter estimated in the baseline HbA1c > 47.5mmol/mol subgroup
                                                        ifelse(GlobalVars_["HbA1c Scenario","Value"]=="RecruitedBeforeFeb2020",parameter_[,"Subgroup_RecruitedBeforeFeb2020_A1c"], #If the recruited before Feb 2020 (pre-COVID) subgroup is selected, use the HbA1c parameter estiamted in the recurited before Feb 2020 subgroup
-                                                              parameter[,"Intv_Embedding_HbA1c"])))))) # If no valid subgroup is set, use the base case value for HbA1c
+                                                              ifelse(GlobalVars_["HbA1c Scenario","Value"]=="DESMOND",parameter_[,"Subgroup_ProviderOffers_DESMOND_HbA1c"], #Subgroup using data from providers who referred to DESMOND SSME
+                                                                     ifelse(GlobalVars_["HbA1c Scenario","Value"]=="Diabetes 2gether",parameter_[,"Subgroup_ProviderOffers_Diab2gether_HbA1c"],#Subgroup using data from providers who referred to Diabetes 2gether or Diabetes 4ward SSME
+                                                                            ifelse(GlobalVars_["HbA1c Scenario","Value"]=="Spotlight",parameter_[,"Subgroup_ProviderOffers_spotlight_HbA1c"], #Subgroup using data from providers who referred to Spotlight SSME
+                                                                                   ifelse(GlobalVars_["HbA1c Scenario","Value"]=="Xpert Health",parameter_[,"Subgroup_ProviderOffers_XpertHealth_HbA1c"], #Subgroup using data from providers who referred to Xpert Health SSME 
+                                                              parameter[,"Intv_Embedding_HbA1c"])))))))))) # If no valid subgroup is set, use the base case value for HbA1c
 
     ####Duration scenarios
     if(as.numeric(GlobalVars_["Treatment effect duration","Value"])==3){#effects last until year 3
