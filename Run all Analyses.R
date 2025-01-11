@@ -487,7 +487,7 @@ GlobalVars["HbA1c Scenario", "Value"] <- "DESMOND"
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "Embedding_TrialEffect_All", 
@@ -501,7 +501,7 @@ write.csv(results1, "Results/Embedding_DesmondSubgroup.csv")
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "baseline", 
@@ -519,7 +519,7 @@ GlobalVars["HbA1c Scenario", "Value"] <- "Diabetes 2gether"
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "Embedding_TrialEffect_All", 
@@ -534,7 +534,7 @@ write.csv(results1, "Results/Embedding_Diabetes2getherSubgroup.csv")
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "baseline", 
@@ -552,7 +552,7 @@ GlobalVars["HbA1c Scenario", "Value"] <- "Diabetes 2gether"
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "Embedding_TrialEffect_All", 
@@ -567,7 +567,7 @@ write.csv(results1, "Results/Embedding_SpotlightSubgroup.csv")
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "baseline", 
@@ -587,7 +587,7 @@ GlobalVars["HbA1c Scenario", "Value"] <- "Xpert Health"
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "Embedding_TrialEffect_All", 
@@ -601,7 +601,7 @@ write.csv(results1, "Results/Embedding_XpertHealthSubgroup.csv")
 set.seed(1)
 start.time <- Sys.time()
 
-results1 <- run_model(population_clean_A1c6.5above, 
+results1 <- run_model(population_clean, 
                       parameter, 
                       50, 
                       "baseline", 
