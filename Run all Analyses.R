@@ -378,16 +378,6 @@ end.time <- Sys.time()
 end.time - start.time
 
 write.csv(results1, "Results/completecase_embedding.csv")
-set.seed(1)
-results2 <- run_model(population_clean, 
-                      parameter, 
-                      50, 
-                      "baseline", 
-                      GlobalVars,
-                      random_numbers,
-                      LifeTables)
-
-write.csv(results2, "Results/completecase_control.csv")
 
 #Education Attenders Subgroup
 GlobalVars["HbA1c Scenario", "Value"] <- "EducationAttenders"
@@ -407,16 +397,6 @@ end.time <- Sys.time()
 end.time - start.time
 
 write.csv(results1, "Results/educattenders_embedding.csv")
-set.seed(1)
-results2 <- run_model(population_clean, 
-                      parameter, 
-                      50, 
-                      "baseline", 
-                      GlobalVars,
-                      random_numbers,
-                      LifeTables)
-
-write.csv(results2, "Results/educattenders_control.csv")
 
 #Recruited before Feb 2020
 GlobalVars["HbA1c Scenario", "Value"] <- "RecruitedBeforeFeb2020"
@@ -436,16 +416,6 @@ end.time <- Sys.time()
 end.time - start.time
 
 write.csv(results1, "Results/precovid_embedding.csv")
-set.seed(1)
-results2 <- run_model(population_clean, 
-                      parameter, 
-                      50, 
-                      "baseline", 
-                      GlobalVars,
-                      random_numbers,
-                      LifeTables)
-
-write.csv(results2, "Results/precovid_control.csv")
 
 #Baseline HbA1c above 6.5%
 inpop <- population_clean[,"HBA"] >= 6.5
@@ -498,21 +468,6 @@ end.time <- Sys.time()
 end.time - start.time
 write.csv(results1, "Results/Embedding_DesmondSubgroup.csv")
 
-set.seed(1)
-start.time <- Sys.time()
-
-results1 <- run_model(population_clean, 
-                      parameter, 
-                      50, 
-                      "baseline", 
-                      GlobalVars,
-                      random_numbers,
-                      LifeTables)
-end.time <- Sys.time()
-end.time - start.time
-
-write.csv(results1, "Results/Control_DesmondSubgroup.csv")
-
 #Diabetes 2gether / Diabetes 4ward
 GlobalVars["HbA1c Scenario", "Value"] <- "Diabetes 2gether"
 
@@ -530,21 +485,6 @@ end.time <- Sys.time()
 end.time - start.time
 
 write.csv(results1, "Results/Embedding_Diabetes2getherSubgroup.csv")
-
-set.seed(1)
-start.time <- Sys.time()
-
-results1 <- run_model(population_clean, 
-                      parameter, 
-                      50, 
-                      "baseline", 
-                      GlobalVars,
-                      random_numbers,
-                      LifeTables)
-end.time <- Sys.time()
-end.time - start.time
-
-write.csv(results1, "Results/Control_Diabetes2getherSubgroup.csv")
 
 #Spotlight
 GlobalVars["HbA1c Scenario", "Value"] <- "Diabetes 2gether"
@@ -564,21 +504,6 @@ end.time - start.time
 
 write.csv(results1, "Results/Embedding_SpotlightSubgroup.csv")
 
-set.seed(1)
-start.time <- Sys.time()
-
-results1 <- run_model(population_clean, 
-                      parameter, 
-                      50, 
-                      "baseline", 
-                      GlobalVars,
-                      random_numbers,
-                      LifeTables)
-end.time <- Sys.time()
-end.time - start.time
-
-write.csv(results1, "Results/Control_SpotlightSubgroup.csv")
-
 
 
 #Xpert Health
@@ -597,18 +522,3 @@ results1 <- run_model(population_clean,
 end.time <- Sys.time()
 end.time - start.time
 write.csv(results1, "Results/Embedding_XpertHealthSubgroup.csv")
-
-set.seed(1)
-start.time <- Sys.time()
-
-results1 <- run_model(population_clean, 
-                      parameter, 
-                      50, 
-                      "baseline", 
-                      GlobalVars,
-                      random_numbers,
-                      LifeTables)
-end.time <- Sys.time()
-end.time - start.time
-
-write.csv(results1, "Results/Control_XpertHealthSubgroup.csv")
