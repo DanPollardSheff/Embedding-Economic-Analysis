@@ -487,7 +487,7 @@ end.time - start.time
 write.csv(results1, "Results/Embedding_Diabetes2getherSubgroup.csv")
 
 #Spotlight
-GlobalVars["HbA1c Scenario", "Value"] <- "Diabetes 2gether"
+GlobalVars["HbA1c Scenario", "Value"] <- "Spotlight"
 
 set.seed(1)
 start.time <- Sys.time()
